@@ -6,6 +6,7 @@
 
     Try changing "table" to "view" below
     Changed for fun :-)
+    Changed for Githhub demo: Commit and Pull request
 */
 
 {{ config(materialized='table') }}
