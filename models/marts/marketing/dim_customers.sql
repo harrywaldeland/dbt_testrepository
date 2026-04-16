@@ -4,7 +4,7 @@ with customers as (
         customer_id,
         customer_name
 --    from {{ source('raw', 'raw_customers') }} -- originally, before stg-object
-        from {{ ref('stg_hwalde_JaffleShop__customers') }}
+        from {{ ref('stg_raw__customers') }}
 
 ),
 
@@ -16,7 +16,7 @@ orders as (
         ordered_at,
         order_total
 --    from {{ source('raw', 'raw_orders') }} -- originally, before stg-object
-    from {{ ref('stg_hwalde_JaffleShop__orders') }}
+    from {{ ref('stg_raw__orders') }}
 
 ),
 
