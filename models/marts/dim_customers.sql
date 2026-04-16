@@ -1,20 +1,22 @@
 with customers as (
 
     select
-        id as customer_id,
-        name as customer_name
-    from {{ source('raw', 'raw_customers') }}
+        customer_id,
+        customer_name
+--    from {{ source('raw', 'raw_customers') }} -- originally, before stg-object
+        from {{ ref('stg_hwalde_JaffleShop__customers') }}
 
 ),
 
 orders as (
 
     select
-        id as order_id,
-        customer as customer_id,
+        order_id,
+        customer_id,
         ordered_at,
         order_total
-    from {{ source('raw', 'raw_orders') }}
+--    from {{ source('raw', 'raw_orders') }} -- originally, before stg-object
+    from {{ ref('stg_hwalde_JaffleShop__orders') }}
 
 ),
 
