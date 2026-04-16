@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: stripe
+    description: "Stripe-datasett brukt i dbt Fundamentals."
+    database: ANALYTICS
+    schema: STRIPE
+
+    tables:
+      - name: payment
+        description: "Betalingstransaksjoner fra Stripe."
+        columns:
+          - name: ID
+            description: "Unik ID for betalingen."
+          - name: ORDERID
+            description: "ID for ordren betalingen tilhører."
+          - name: PAYMENTMETHOD
+            description: "Betalingsmetode brukt av kunden."
+          - name: STATUS
+            description: "Status for betalingen (f.eks. succeeded, failed)."
+          - name: AMOUNT
+            description: "Beløp som ble belastet."
+          - name: CREATED
+            description: "Tidspunkt betalingen ble opprettet."
+          - name: _BATCHED_AT
+            description: "Tidspunkt for batch-innlasting til dataplattformen."
