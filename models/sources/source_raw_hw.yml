@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: raw_hw
+    description: "Jaffle Shop RAW-datasett lastet inn av Harry."
+    database: ANALYTICS
+    schema: RAW_HW
+
+    tables:
+
+      - name: customers
+        description: "Kunderegister fra Jaffle Shop."
+        columns:
+          - name: id
+            description: "Unik kunde-ID."
+            tests:
+              - not_null
+              - unique
+          - name: first_name
+            description: "Fornavn."
+          - name: last_name
+            description: "Etternavn."
+
+      - name: orders
+        description: "Ordredata fra Jaffle Shop."
+        columns:
+          - name: id
+            description: "Unik ordre-ID."
+            tests:
+              - not_null
+              - unique
+          - name: user_id
+            description: "Kunde-ID som la inn ordren."
+            tests:
+              - not_null
+          - name: order_date
+            description: "Tidspunkt for ordre."
+          - name: status
+            description: "Ordrestatus."
+
+      - name: order_items
+        description: "Order line items fra Jaffle Shop."
+        columns:
+          - name: id
+            description: "Unik linje-ID."
+            tests:
+              - not_null
+              - unique
+          - name: order_id
+            description: "Referanse til ordre."
+            tests:
+              - not_null
+          - name: product_id
+            description: "Produkt-ID."
+          - name: quantity
+            description: "Antall."
