@@ -1,4 +1,5 @@
 select
         id as customer_id,
-        name as customer_name
-    from {{ source('raw', 'raw_customers') }}
+        first_name as customer_first_name,
+        last_name as customer_last_name
+    from {{ source('raw_hw', 'customers') }}
