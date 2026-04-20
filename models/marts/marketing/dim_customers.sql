@@ -13,7 +13,7 @@ orders as (
     select
         order_id,
         customer_id,
-        ordered_at,
+        order_date,
         order_total
 --    from {{ source('raw', 'raw_orders') }} -- originally, before stg-object
     from {{ ref('stg_raw__orders') }}
