@@ -24,8 +24,8 @@ customer_orders as (
 
     select
         customer_id,
-        min(ordered_at) as first_order_date,
-        max(ordered_at) as most_recent_order_date,
+        min(order_date) as first_order_date,
+        max(order_date) as most_recent_order_date,
         count(order_id) as number_of_orders
     from orders
     group by customer_id
