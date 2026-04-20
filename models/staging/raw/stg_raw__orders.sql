@@ -1,5 +1,5 @@
 select
-        id as order_id,
+        try_to_number(id) as order_id,
         customer as customer_id,
         ordered_at as order_date,
         order_total
