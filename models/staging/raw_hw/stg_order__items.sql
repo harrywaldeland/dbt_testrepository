@@ -1,0 +1,6 @@
+select
+    id as order_item_id,
+    order_id,
+    product_id,
+    quantity
+from {{ source('raw_hw', 'order_items') }}

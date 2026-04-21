@@ -2,9 +2,9 @@ with customers as (
 
     select
         customer_id,
-        customer_name
---    from {{ source('raw', 'raw_customers') }} -- originally, before stg-object
-        from {{ ref('stg_raw__customers') }}
+        customer_first_name,
+        customer_last_name
+      from {{ ref('stg_raw__customers') }}
 
 ),
 
@@ -15,9 +15,7 @@ orders as (
         customer_id,
         order_date,
         order_total
---    from {{ source('raw', 'raw_orders') }} -- originally, before stg-object
     from {{ ref('stg_raw__orders') }}
-
 ),
 
 customer_orders as (
@@ -36,7 +34,8 @@ final as (
 
     select
         customers.customer_id,
-        customers.customer_name,
+        customers.customer_first_name,
+        customers.customer_last_name,
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
         coalesce(customer_orders.number_of_orders, 0) as number_of_orders
