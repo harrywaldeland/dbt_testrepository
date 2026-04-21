@@ -37,6 +37,8 @@ sources:
             description: "Tidspunkt for ordre."
           - name: status
             description: "Ordrestatus."
+          - name: order_total
+            description: "Totalbeløp for ordren."
 
       - name: order_items
         description: "Order line items fra Jaffle Shop."
