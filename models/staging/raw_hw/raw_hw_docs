@@ -1,0 +1,9 @@
+{% docs order_status %}
+
+One of the following values:
+| order_status      | definition                                                    |
+|                   |----------------------------------------------------------------
+| shipped           | Order has been shipped but hasn't yet been delivered          |
+| completed         | Order has been received by customers                          |
+
+{% enddocs %}
