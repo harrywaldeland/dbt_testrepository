@@ -1,0 +1,27 @@
+models:
+  - name: stg_raw__orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_raw__customers')
+                field: customer_id
+      - name: order_date
+        data_tests:
+          - not_null
+      - name: order_status
+        description: "{{ doc('order_status') }}"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['completed', 'shipped']
+      - name: order_total
+        data_tests:
+          - not_null
