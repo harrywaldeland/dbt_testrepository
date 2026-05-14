@@ -1,5 +1,5 @@
 models:
-  - name: stg_order__items
+  - name: stg_raw_order__items
     columns:
       - name: order_item_id
         tests:
