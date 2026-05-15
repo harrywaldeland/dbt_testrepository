@@ -3,8 +3,7 @@ select
     orderid as order_id,
     paymentmethod as payment_method,
     status as payment_status,
-    -- amount as payment_amount, -- bruker makro for å hente payment_amount
-    {{ cents_to_dollars("amount") }} as payment_amount,
+    {{ cents_to_dollars("AMOUNT")}} as payment_amount, -- kaller makro
     created as payment_created,
     _batched_at
 from {{ source("stripe", "payment") }}
